@@ -4,21 +4,36 @@ body {
   overflow: hidden;
 }
 
+/* ✅ background responsive */
 .basket-bg {
-  background: linear-gradient(120deg, #1e3c72, #2a5298, #000);
+  background: url("assets/court.png") center / cover no-repeat;
   height: 100vh;
   color: white;
 }
 
+/* container */
 .center {
   text-align: center;
   margin-top: 80px;
+  padding: 0 20px;
 }
 
+/* titlu */
+h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+/* ✅ butoane corect aranjate */
 .buttons {
   margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px; /* spațiu între mingi */
 }
 
+/* mingi */
 .ball {
   width: 120px;
   cursor: pointer;
@@ -29,6 +44,133 @@ body {
   transform: scale(1.1);
 }
 
+/* ✅ NU folosim absolute aici */
 .no {
-  position: absolute;
+  position: static;
 }
+
+/* 📱 responsive */
+@media (max-width: 768px) {
+
+  .center {
+    padding: 0 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .buttons {
+    gap: 30px;
+  }
+
+  .ball {
+    width: 90px;
+  }
+
+  .basket-bg {
+    background-position: top;
+  }
+}
+
+/* ================= SUCCESS PAGE ================= */
+
+/* background */
+.success-bg {
+  background: url("assets/dunk.png") center / cover no-repeat;
+  height: 100vh;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* overlay pentru lizibilitate */
+.success-bg .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* container text */
+.celebration {
+  position: relative;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  padding: 0 20px;
+}
+
+/* titlu mare animat */
+.title {
+  font-size: 3rem;
+  animation: pop 0.6s ease;
+}
+
+/* subtitlu */
+.subtitle {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  animation: fadeIn 1s ease;
+}
+
+/* animații */
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* 🔥 confetti simplu animat */
+.success-bg::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background-image:
+    radial-gradient(circle, red 3px, transparent 3px),
+    radial-gradient(circle, yellow 3px, transparent 3px),
+    radial-gradient(circle, blue 3px, transparent 3px);
+  background-size: 60px 60px;
+  animation: confetti 3s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(200px);
+  }
+}
+
+/* 📱 mobile */
+@media (max-width: 768px) {
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .success-bg {
+    background-position: top;
+  }
+}
+

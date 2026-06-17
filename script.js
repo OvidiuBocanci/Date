@@ -1,16 +1,42 @@
-const noBtn = document.getElementById("noBtn");
+const noSmall = document.getElementById("noSmall");
+const noBig = document.getElementById("noBig");
 
-function moveButton() {
-  const x = Math.random() * (window.innerWidth - 100);
-  const y = Math.random() * (window.innerHeight - 100);
+/* prima interacțiune */
+function activateBigNo() {
+  // 🔵 ascunde NO mic
+  noSmall.classList.add("hidden");
 
-  noBtn.style.position = "absolute";
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
+  // 🔴 arată NO mare
+  noBig.classList.add("active");
+
+  moveBigNo();
 }
 
-noBtn.addEventListener("mouseenter", moveButton);
-noBtn.addEventListener("touchstart", (e) => {
+/* mișcare NO mare */
+function moveBigNo() {
+  const padding = 20;
+
+  const maxX = window.innerWidth - noBig.offsetWidth - padding;
+  const maxY = window.innerHeight - noBig.offsetHeight - padding;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  noBig.style.left = x + "px";
+  noBig.style.top = y + "px";
+}
+
+/* evenimente */
+noSmall.addEventListener("mouseenter", activateBigNo);
+noBig.addEventListener("mouseenter", moveBigNo);
+
+/* mobile */
+noSmall.addEventListener("touchstart", (e) => {
   e.preventDefault();
-  moveButton();
+  activateBigNo();
+});
+
+noBig.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  moveBigNo();
 });

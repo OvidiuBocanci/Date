@@ -100,27 +100,37 @@ h1 {
   color: white;
 }
 
+
 /* title */
 .success-container h1 {
   font-size: clamp(1.8rem, 5vw, 3rem);
+  white-space: nowrap;
 
-  white-space: nowrap; /* 🔑 BLOCHEAZĂ pe un singur rând */
+  color: white;
 
   text-shadow:
     2px 2px 0 #000,
-   -2px -2px 0 #000,
-    0 0 15px rgba(0,0,0,0.6);
+   -2px 2px 0 #000,
+    2px -2px 0 #000,
+   -2px -2px 0 #000; /* 🔥 contur negru */
 }
+
+
 
 /* subtitle */
 .success-container p {
   font-size: clamp(1rem, 3vw, 1.5rem);
 
+  color: white;
+
   text-shadow:
     2px 2px 0 #000,
-   -2px -2px 0 #000,
-    0 0 10px rgba(0,0,0,0.6);
+   -2px 2px 0 #000,
+    2px -2px 0 #000,
+   -2px -2px 0 #000;
 }
+``
+
 
 
 /* ================= MOBILE ================= */

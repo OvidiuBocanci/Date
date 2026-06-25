@@ -102,7 +102,7 @@ h1 {
 
 /* title */
 .success-container h1 {
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 5vw, 3rem);
 
   text-shadow:
     2px 2px 0 #000,
@@ -112,13 +112,14 @@ h1 {
 
 /* subtitle */
 .success-container p {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
 
   text-shadow:
     2px 2px 0 #000,
    -2px -2px 0 #000,
     0 0 10px rgba(0,0,0,0.6);
 }
+
 
 /* ================= MOBILE ================= */
 

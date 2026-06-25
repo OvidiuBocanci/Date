@@ -1,26 +1,29 @@
+/* ================= GENERAL ================= */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   overflow: hidden;
 }
 
-/* BACKGROUND INDEX */
+/* ================= INDEX BACKGROUND ================= */
+
 .bg {
   background: url("assets/bg.png") center / cover no-repeat;
   height: 100vh;
   color: white;
 }
 
-/* CONTENT */
+/* ================= CONTENT ================= */
+
 .center {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   height: 100vh;
   text-align: center;
-  padding: 20px;
 }
 
 /* TEXT */
@@ -39,9 +42,10 @@ h1 {
   gap: 60px;
 }
 
-/* IMAGES */
+/* ================= IMAGES ================= */
+
 .ball {
-  width: 120px;
+  width: 180px; /* 🔥 +50% */
   cursor: pointer;
   transition: transform 0.2s;
 }
@@ -56,59 +60,68 @@ h1 {
   pointer-events: none;
 }
 
-/* NO mare */
+/* ================= NO MARE ================= */
+
 .no-big {
   position: fixed;
-  width: 120px;
-  pointer-events: none;
+  width: 180px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
   opacity: 0;
+  pointer-events: none;
   z-index: 1000;
 
   transition: transform 0.2s;
 }
 
-/* ACTIV */
 .no-big.active {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* SUCCESS PAGE */
+/* ================= SUCCESS PAGE ================= */
+
 .success-bg {
   background: url("assets/bg_succes.png") center / cover no-repeat;
   height: 100vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 }
 
-/* TEXT SUCCESS */
+/* text positionat la 25% */
 .success-container {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+
   text-align: center;
   color: white;
-  padding: 20px;
 }
 
+/* title */
 .success-container h1 {
   font-size: 3rem;
-  margin-bottom: 10px;
 
   text-shadow:
     2px 2px 0 #000,
-   -2px -2px 0 #000;
+   -2px -2px 0 #000,
+    0 0 15px rgba(0,0,0,0.6);
 }
 
+/* subtitle */
 .success-container p {
   font-size: 1.5rem;
 
   text-shadow:
     2px 2px 0 #000,
-   -2px -2px 0 #000;
+   -2px -2px 0 #000,
+    0 0 10px rgba(0,0,0,0.6);
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
+
 @media (max-width: 768px) {
 
   h1 {
@@ -117,7 +130,7 @@ h1 {
 
   .ball,
   .no-big {
-    width: 80px;
+    width: 120px;
   }
 
   .buttons {

@@ -3,22 +3,20 @@ const noBig = document.getElementById("noBig");
 
 let scale = 1;
 
-/* prima activare */
+/* prima interacțiune */
 function activateBigNo() {
-  noSmall.classList.add("hidden"); // invizibil + inactiv
+  noSmall.classList.add("hidden");
   noBig.classList.add("active");
 
   moveBig();
 }
 
-/* miscare + micsorare */
+/* mișcare + micșorare */
 function moveBig() {
-  const padding = 20;
 
-  // 🔻 se micsoreaza progresiv
   scale = Math.max(scale * 0.8, 0.3);
 
-  noBig.style.transform = `scale(${scale})`;
+  noBig.style.transform = `translate(-50%, -50%) scale(${scale})`;
 
   const maxX = window.innerWidth - noBig.offsetWidth;
   const maxY = window.innerHeight - noBig.offsetHeight;
@@ -31,7 +29,6 @@ function moveBig() {
 }
 
 /* EVENTS */
-
 noSmall.addEventListener("mouseenter", activateBigNo);
 noBig.addEventListener("mouseenter", moveBig);
 
@@ -45,4 +42,3 @@ noBig.addEventListener("touchstart", (e) => {
   e.preventDefault();
   moveBig();
 });
-``

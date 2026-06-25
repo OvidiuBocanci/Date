@@ -1,23 +1,27 @@
 const noSmall = document.getElementById("noSmall");
 const noBig = document.getElementById("noBig");
 
-/* prima interacțiune */
-function activateBigNo() {
-  // 🔵 ascunde NO mic
-  noSmall.classList.add("hidden");
+let scale = 1;
 
-  // 🔴 arată NO mare
+/* prima activare */
+function activateBigNo() {
+  noSmall.classList.add("hidden"); // invizibil + inactiv
   noBig.classList.add("active");
 
-  moveBigNo();
+  moveBig();
 }
 
-/* mișcare NO mare */
-function moveBigNo() {
+/* miscare + micsorare */
+function moveBig() {
   const padding = 20;
 
-  const maxX = window.innerWidth - noBig.offsetWidth - padding;
-  const maxY = window.innerHeight - noBig.offsetHeight - padding;
+  // 🔻 se micsoreaza progresiv
+  scale = Math.max(scale * 0.8, 0.3);
+
+  noBig.style.transform = `scale(${scale})`;
+
+  const maxX = window.innerWidth - noBig.offsetWidth;
+  const maxY = window.innerHeight - noBig.offsetHeight;
 
   const x = Math.random() * maxX;
   const y = Math.random() * maxY;
@@ -26,9 +30,10 @@ function moveBigNo() {
   noBig.style.top = y + "px";
 }
 
-/* evenimente */
+/* EVENTS */
+
 noSmall.addEventListener("mouseenter", activateBigNo);
-noBig.addEventListener("mouseenter", moveBigNo);
+noBig.addEventListener("mouseenter", moveBig);
 
 /* mobile */
 noSmall.addEventListener("touchstart", (e) => {
@@ -38,5 +43,6 @@ noSmall.addEventListener("touchstart", (e) => {
 
 noBig.addEventListener("touchstart", (e) => {
   e.preventDefault();
-  moveBigNo();
+  moveBig();
 });
+``

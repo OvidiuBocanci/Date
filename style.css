@@ -1,52 +1,45 @@
-/* ================= GENERAL ================= */
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   overflow: hidden;
 }
 
-/* ================= BACKGROUND ================= */
-
-.basket-bg {
-  background: url("assets/court.png") center / cover no-repeat;
+/* BACKGROUND INDEX */
+.bg {
+  background: url("assets/bg.png") center / cover no-repeat;
   height: 100vh;
   color: white;
 }
 
-/* ================= CONTAINER MIC ================= */
-
+/* CONTENT */
 .center {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   height: 100vh;
   text-align: center;
-  padding: 0 20px;
+  padding: 20px;
 }
 
-/* TITLU */
+/* TEXT */
 h1 {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 2.5rem;
   margin-bottom: 40px;
 
   text-shadow:
     2px 2px 0 #000,
-   -2px 2px 0 #000,
-    2px -2px 0 #000,
    -2px -2px 0 #000;
 }
 
-/* BUTOANE */
+/* BUTTONS */
 .buttons {
   display: flex;
   gap: 60px;
 }
 
-/* ================= MINGI ================= */
-
+/* IMAGES */
 .ball {
   width: 120px;
   cursor: pointer;
@@ -60,99 +53,74 @@ h1 {
 /* NO mic */
 .no-small.hidden {
   opacity: 0;
-}
-
-/* ================= CONTAINER MARE ================= */
-
-.fullscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* IMPORTANT */
+  pointer-events: none;
 }
 
 /* NO mare */
 .no-big {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  opacity: 0;
+  position: fixed;
+  width: 120px;
   pointer-events: none;
+
+  opacity: 0;
+  z-index: 1000;
+
+  transition: transform 0.2s;
 }
 
-/* când devine activ */
+/* ACTIV */
 .no-big.active {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* ================= RESPONSIVE ================= */
+/* SUCCESS PAGE */
+.success-bg {
+  background: url("assets/bg_succes.png") center / cover no-repeat;
+  height: 100vh;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TEXT SUCCESS */
+.success-container {
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.success-container h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+
+  text-shadow:
+    2px 2px 0 #000,
+   -2px -2px 0 #000;
+}
+
+.success-container p {
+  font-size: 1.5rem;
+
+  text-shadow:
+    2px 2px 0 #000,
+   -2px -2px 0 #000;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
-  .ball {
-    width: 90px;
+  .ball,
+  .no-big {
+    width: 80px;
   }
 
   .buttons {
     gap: 30px;
   }
-}
-
-/* ================= SUCCESS ================= */
-
-.success-bg {
-  background: url("assets/dunk.png") center / cover no-repeat;
-  height: 100vh;
-  margin: 0;
-  position: relative;
-  overflow: hidden;
-
-  animation: zoomDunk 2s ease forwards;
-}
-
-@keyframes zoomDunk {
-  0% { transform: scale(1.15); }
-  100% { transform: scale(1); }
-}
-
-/* confetti */
-.success-bg::before,
-.success-bg::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.success-bg::before {
-  background-image:
-    radial-gradient(circle, red 6px, transparent 7px),
-    radial-gradient(circle, yellow 6px, transparent 7px),
-    radial-gradient(circle, blue 6px, transparent 7px);
-
-  background-size: 120px 120px;
-  animation: confetti 2s linear infinite;
-}
-
-.success-bg::after {
-  background-image:
-    radial-gradient(circle, magenta 5px, transparent 6px),
-    radial-gradient(circle, cyan 5px, transparent 6px);
-
-  background-size: 80px 80px;
-  animation: confetti 1.5s linear infinite;
-}
-
-@keyframes confetti {
-  0% { background-position: 0 -200px; }
-  100% { background-position: 200px 600px; }
 }

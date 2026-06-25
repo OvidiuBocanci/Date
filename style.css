@@ -104,6 +104,8 @@ h1 {
 .success-container h1 {
   font-size: clamp(1.8rem, 5vw, 3rem);
 
+  white-space: nowrap; /* 🔑 BLOCHEAZĂ pe un singur rând */
+
   text-shadow:
     2px 2px 0 #000,
    -2px -2px 0 #000,
